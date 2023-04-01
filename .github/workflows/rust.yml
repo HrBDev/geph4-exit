@@ -19,4 +19,8 @@ jobs:
     - name: req
       run: cargo install cross
     - name: Build
-      run: cross build --locked --release --target x86_64-unknown-linux-musl
+      run: cross build --locked --release --target x86_64-unknown-linux-musl --target-dir ./output/
+    - uses: actions/upload-artifact@v3
+      with:
+        name: my-artifact
+        path: ./output/
